@@ -1,0 +1,40 @@
+[타입스크립트 개발환경 구성]
+Node.js 설치 : http://nodejs.org
+Visual Studio Code 설치
+typescript compilter 설치 : npm install typescript -g
+tsc 명령어로 ts 파일을 컴파일 해서 js파일을 생성 : tsc hello.ts
+프로젝트 생성
+npm init -Y (nodejs 기반)
+tsconfig.json 파일 생성 -> typescript compile 옵션 
+
+
+[타입스크립트 프로젝트 생성 및 관리]
+tsconfig.json 파일생성
+{
+  "compilerOptions": {
+    "strict": true,                                
+    "lib": ["es2015", "es2016", "ES2017", "ES2018", "ES2019", "ES2020"],                                
+    "moduleResolution": "node",                          
+    }
+}
+$ tsc --init 
+
+[express와type설치]
+$ npm i express @types/express
+
+
+[기타]
+node서버가 죽었을때 pm2도구 사용
+하지만 서버자체에 에러가 나면 다시 서버다운됨
+서버 자체내에 에러는 줄이기 위해 타입스크립트 사용
+타입스크립트를 적용하면 자바스크립트에서의 타입관련에러 실수를 막아준다.
+서버는 안정성확보가 중요
+
+
+import * as express from 'express';
+import express from 'express'; //tsconfig.json에서 ecModuleInterop:true 할 경우 가능
+
+
+ts 파일을 js로 컴파일 후 node로 실행한다.
+ts-node를 사용하면 ts파일을 js로 컴파일을 내부적으로 해준뒤 실행
+
